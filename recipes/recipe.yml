@@ -19,7 +19,7 @@ modules:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
       - dnf
-      - libavcodec-freeworld
+      - ffmpeg
       - tailscale
       - virt-install
       - virt-manager
