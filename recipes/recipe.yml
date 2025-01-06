@@ -18,7 +18,6 @@ modules:
     repos:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
-      - dnf
       - ffmpeg
       - tailscale
       - virt-install
