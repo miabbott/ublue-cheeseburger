@@ -1,11 +1,13 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: ublue-cheeseburger
 # description will be included in the image's metadata
 description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 41 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/bluefin
+image-version: latest
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -14,9 +16,10 @@ modules:
     install:
       - wl
 
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
       - ffmpeg
       - tailscale
@@ -27,14 +30,10 @@ modules:
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
 
   - type: default-flatpaks
-    notify: true   # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
-      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-    user:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
+    configurations:
+      - notify: false
+        scope: system
+        install:
+          - org.localsend.localsend_app
 
   - type: signing

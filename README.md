@@ -1,4 +1,4 @@
-# ublue-cheeseburger
+# BlueBuild Template &nbsp; [![bluebuild build badge](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
 
 > **Warning**
 > Startingpoint was recently rewritten, and this version is considered a "1.0" *semi-*stable release.
@@ -39,8 +39,8 @@ Documentation around making custom images exists / should be written in two sepa
 
 ## Installation
 
-> **Warning**
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable) and should not be used in production, try it in a VM for a while!
+> [!WARNING]
+> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
 
 To rebase an existing Silverblue/Kinoite installation to the latest build:
 
