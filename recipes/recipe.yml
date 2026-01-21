@@ -21,13 +21,15 @@ modules:
       files:
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
-      - ffmpeg
-      - tailscale
-      - virt-install
-      - virt-manager
+      packages:
+        - ffmpeg
+        - tailscale
+        - virt-install
+        - virt-manager
     remove:
-      - firefox # default firefox removed in favor of flatpak
-      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+      packages:
+        - firefox # default firefox removed in favor of flatpak
+        - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
 
   - type: default-flatpaks
     configurations:
